@@ -2,7 +2,7 @@
 import { updateStatus } from '@/app/actions/order.action'
 import { Card , CardHeader , CardTitle, CardContent } from '@/components/ui/card'
 import { IOrderDTO } from '@/types/order'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface IDashboardOrderList {
     Orders : IOrderDTO[]
@@ -20,6 +20,13 @@ function DashboardOrderList({Orders} : IDashboardOrderList) {
   setstatus(newStatus)
   updateStatus(newStatus , id)
 }
+
+useEffect(() => {
+  
+console.log(Orders);
+
+}, [])
+
 
   return (
      <Card>
