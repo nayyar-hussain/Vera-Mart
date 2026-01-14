@@ -1,3 +1,5 @@
+import mongoose from "mongoose"
+
 export interface ICart {
     _id : string,
     cartId : string
@@ -12,10 +14,10 @@ export interface ICart {
 }
 
 export type CartItemDoc = {
-  _id: string;
+  _id: mongoose.Types.ObjectId;
   quantity: number;
   productId: {
-    _id: string;
+    _id: mongoose.Types.ObjectId;
     name: string;
     description: string;
     price: number;

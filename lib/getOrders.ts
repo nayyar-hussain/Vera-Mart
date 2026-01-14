@@ -1,4 +1,5 @@
 import Order from "@/Model/Order";
+import { CartItemDoc } from "@/types/cart";
 import { IOrderDTO } from "@/types/order";
 
 export const getOrders = async () : Promise<IOrderDTO[]> => {
@@ -8,7 +9,7 @@ export const getOrders = async () : Promise<IOrderDTO[]> => {
       const plainOrder : IOrderDTO[] = orderRes.map(order => ({
         _id : order._id.toString(),
         userId : order.userId.toString(),
-        items : order.items.map(item => ({
+        items : order.items.map((item : CartItemDoc) => ({
           _id : item._id.toString(),
           quantity : item.quantity,
           product : {
