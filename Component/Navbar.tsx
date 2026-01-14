@@ -1,12 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import { ShoppingCart, Menu, User } from "lucide-react"
+import { ShoppingCart, Menu, User, LogOut, } from "lucide-react"
 import {  useEffect, useState } from "react"
-import { useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
 import axios from "axios"
+import { Button } from "@/components/ui/button"
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -65,6 +65,7 @@ export default function Navbar() {
              <></>
              }
           </Link>
+          <Button className="cursor-pointer" onClick={() => signOut()}>Logout <LogOut/></Button>
 
           {/* Profile / Login */}
           <div >
