@@ -59,7 +59,7 @@ export async function GET (req: NextRequest) {
     await ConnectToDatabase()
       const pendingOrders = await Order.find({
     userId,
-    status: { $ne: "delivered" } // pending orders
+    status:  "delivered"  // pending orders
   }).populate("items.productId");
 
   const allPendingItems = pendingOrders.flatMap(order => order.items);

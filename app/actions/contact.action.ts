@@ -11,7 +11,6 @@ export const sendContactForm = async (formData : FormData) :  Promise<void> => {
     const subject = formData.get('subject')?.toString()
     const message = formData.get('message')?.toString()
 
-    console.log(name , email , message , subject);
     
 
     if(!name || !email || !subject || !message){
@@ -24,7 +23,7 @@ export const sendContactForm = async (formData : FormData) :  Promise<void> => {
         name , email , subject , message
     })
 
-    redirect('/dashboard/messages')
+    redirect('/ecom')
 
     
 }

@@ -62,13 +62,13 @@ function CartItem({cartItems} : {cartItems : ICartItem[]}) {
             </p>
 
             <div className="flex items-center gap-3 mt-3">
-              <button onClick={() => addToCart(item.product._id, 'decrease')} className="px-3 py-1 border rounded">-</button>
+              <button onClick={() => addToCart(item.product._id, 'decrease')} className="cursor-pointer px-3 py-1 border rounded">-</button>
               <span>{item.quantity}</span>
-              <button  onClick={() => addToCart(item.product._id, 'increase')} className="px-3 py-1 border rounded">+</button>
+              <button  onClick={() => addToCart(item.product._id, 'increase')} className="cursor-pointer px-3 py-1 border rounded">+</button>
             </div>
           </div>
 
-          <button onClick={() => deleteCart(item.product._id)} className="text-red-500 hover:text-red-600">
+          <button onClick={() => deleteCart(item.product._id)} className="cursor-pointer text-red-500 hover:text-red-600">
             <Trash2 />
           </button>
         </div>

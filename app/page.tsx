@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center  bg-zinc-50 font-sans dark:bg-black">
       <div>
-        <Button onClick={() => signIn('google')} className="flex items-center justify-center space-x-2 border border-gray-300 bg-white hover:bg-gray-100">
+        <Button onClick={() => signIn('google')} className="flex items-center justify-center space-x-2 border border-gray-300 bg-white hover:bg-gray-100 ">
       <FcGoogle className="w-5 h-5" />
       <span className="text-black cursor-pointer">Sign in with Google</span>
     </Button>
