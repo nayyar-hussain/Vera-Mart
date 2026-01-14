@@ -2,6 +2,7 @@ import CartItem from "@/Component/CartItem"
 import { authOptions } from "@/lib/Auth"
 import { ConnectToDatabase } from "@/lib/Database"
 import Cart from "@/Model/Cart"
+import { CartItemDoc, ICart } from "@/types/cart"
 import { getServerSession } from "next-auth"
 import Link from "next/link"
 
@@ -19,9 +20,9 @@ if (!cartItemsDocu) {
 
 const cartId = cartItemsDocu._id.toString()
 
-const cartItems = cartItemsDocu.items.map(i  => ({
+const cartItems : ICart[] = cartItemsDocu.items.map((i : CartItemDoc)  => ({
   _id: i._id.toString(),
-  cartId,                     // ✅ cart id add
+  cartId,                     
   quantity: i.quantity,
   product: {
     _id: i.productId._id.toString(),
@@ -32,7 +33,7 @@ const cartItems = cartItemsDocu.items.map(i  => ({
   },
 }))
  let subtotal = cartItems.reduce((sum : number , item) => {
-    return sum + item.product.price * item.quantity;
+    return sum +Number(item.product.price )* item.quantity;
    }, 0) 
 
    let shipping = 100;

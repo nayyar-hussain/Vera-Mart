@@ -2,8 +2,15 @@ import { authOptions } from "@/lib/Auth";
 import { ConnectToDatabase } from "@/lib/Database";
 import Cart from "@/Model/Cart";
 import Order from "@/Model/Order";
+import { CartItemDoc } from "@/types/cart";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
+
+interface IOrderCart {
+    productId : string,
+    quantity : number,
+    price : string
+}
 
 export async function POST(req:NextRequest) {
     const session = await getServerSession(authOptions)
@@ -21,14 +28,14 @@ export async function POST(req:NextRequest) {
 
     }
 
-   let orderItem = cart.items.map(item  => ({
+   let orderItem : IOrderCart[] = cart.items.map((item : CartItemDoc)  => ({
     productId : item.productId._id,
     quantity : item.quantity,
     price : item.productId.price
    }))
 
    let total = orderItem.reduce((sum : number , item) => {
-    return sum + item.price * item.quantity;
+    return sum +Number(item.price) * item.quantity;
    }, 0) 
 
    const order = await Order.create({
