@@ -21,11 +21,7 @@ function DashboardOrderList({Orders} : IDashboardOrderList) {
   updateStatus(newStatus , id)
 }
 
-useEffect(() => {
-  
-console.log(Orders);
 
-}, [])
 
 
   return (

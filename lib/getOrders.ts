@@ -1,9 +1,10 @@
 import Order from "@/Model/Order";
 import { CartItemDoc } from "@/types/cart";
 import { IOrderDTO } from "@/types/order";
+import { ConnectToDatabase } from "./Database";
 
-export const getOrders = async () : Promise<IOrderDTO[]> => {
-
+export const getOrders = async  () : Promise<IOrderDTO[]> => {
+      await ConnectToDatabase()
       const orderRes = await Order.find({status : {$ne : 'delivered'}}).populate('items.productId')
     
       const plainOrder : IOrderDTO[] = orderRes.map(order => ({
