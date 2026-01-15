@@ -108,6 +108,9 @@ export default function Navbar() {
               <Link href="/ecom/about">About</Link>
             </li>
             <li>
+              <Link href="/ecom">Product</Link>
+            </li>
+            <li>
               <Link href="/ecom/contact">Contact Us</Link>
             </li>{" "}
             {session?.user?.email === "nayyarhussain125@gmail.com" && (
