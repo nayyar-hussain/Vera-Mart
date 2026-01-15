@@ -1,3 +1,6 @@
+export const revalidate = 0
+
+
 import ProductCard from '@/Component/ProductCard'
 import { ConnectToDatabase } from '@/lib/Database'
 import { getProducts } from '@/lib/getProducts'

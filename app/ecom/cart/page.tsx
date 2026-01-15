@@ -1,3 +1,5 @@
+export const revalidate = 0
+
 import CartItem from "@/Component/CartItem"
 import { authOptions } from "@/lib/Auth"
 import { ConnectToDatabase } from "@/lib/Database"

@@ -1,3 +1,6 @@
+export const revalidate = 0
+
+
 import DashboardCard from "@/Component/DashboardCard"
 import DashboardList from "@/Component/DashboardList"
 import { ConnectToDatabase } from "@/lib/Database"

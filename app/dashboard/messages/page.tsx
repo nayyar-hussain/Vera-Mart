@@ -1,8 +1,9 @@
+export const revalidate = 0
+
 import CustomerMessages from '@/Component/CustomerMessages'
 import { ConnectToDatabase } from '@/lib/Database'
 import Contact from '@/Model/Contact'
 import { IContact, IContactDTO } from '@/types/contact'
-import React from 'react'
 
 async function page() {
    await ConnectToDatabase()

@@ -1,3 +1,5 @@
+export const revalidate = 0
+
 import DashboardOrderList from "@/Component/DashboardOrderList"
 import { ConnectToDatabase } from "@/lib/Database"
 import { getOrders } from "@/lib/getOrders"
