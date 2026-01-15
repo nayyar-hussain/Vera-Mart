@@ -31,4 +31,5 @@ export const sendContactForm = async (formData : FormData) :  Promise<void> => {
 export const deleteMessage = async (id : string) : Promise<void> => {
     if(!id) return
     await Contact.findByIdAndDelete(id)
+    redirect('/dashboard/messages')
 }
