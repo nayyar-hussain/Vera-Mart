@@ -153,7 +153,7 @@ interface IProductItem {
                 </div>
 
                 <p className="font-semibold">
-                  Rs {Number(item.productId.price) * item.quantity || '0'}
+                  {/* Rs {Number(item.productId.price) * item.quantity || '0'} */}
                 </p>
               </div>
             ))}
