@@ -135,7 +135,7 @@ interface IProductItem {
           </CardHeader>
 
           <CardContent className="space-y-4">
-            {myOrders.map((item) => (
+            {myOrders.length > 0 && myOrders.map((item) => (
               <div key={item.productId._id} className="flex gap-3">
                 <Image
                   src={item.productId.imageUrl}
