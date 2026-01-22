@@ -67,12 +67,12 @@ interface IProductItem {
   if(status === 'loading') {
     return <h1>Loading...</h1>
   }
-    const subtotal = myOrders.reduce((sum : number , item) => {
+    const subtotal =myOrders.length > 0 && myOrders.reduce((sum : number , item) => {
     return  sum + Number(item.productId.price) * item.quantity;
   }, 0)
 
   const shipping = 100;
-  const total = shipping + subtotal
+  const total = shipping + (subtotal || 0)
 
 
   
@@ -153,7 +153,7 @@ interface IProductItem {
                 </div>
 
                 <p className="font-semibold">
-                  {/* Rs {Number(item.productId.price) * item.quantity || '0'} */}
+                  Rs {Number(item.productId.price) * item.quantity || '0'}
                 </p>
               </div>
             ))}
@@ -162,19 +162,19 @@ interface IProductItem {
 
             <div className="flex justify-between">
               <span>Subtotal</span>
-              <span>Rs {subtotal || '0'}</span>
+              <span>Rs {subtotal || 0}</span>
             </div>
 
             <div className="flex justify-between">
               <span>Shipping</span>
-              <span>Rs {shipping || "0"}</span>
+              <span>Rs {shipping}</span>
             </div>
 
             <Separator />
 
             <div className="flex justify-between font-bold text-lg">
               <span>Total</span>
-              <span>Rs {total || "0"}</span>
+              <span>Rs {total }</span>
             </div>
 
             <Button className="w-full mt-4">
