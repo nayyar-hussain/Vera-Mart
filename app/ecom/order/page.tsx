@@ -138,7 +138,7 @@ interface IProductItem {
             {myOrders.length > 0 && myOrders.map((item) => (
               <div key={item.productId._id} className="flex gap-3">
                 <Image
-                  src={item.productId.imageUrl}
+                  src={item.productId.imageUrl || ''}
                   alt={item.productId.name}
                   width={60}
                   height={60}
@@ -146,14 +146,14 @@ interface IProductItem {
                 />
 
                 <div className="flex-1">
-                  <p className="font-medium">{item.productId.name}</p>
+                  <p className="font-medium">{item.productId.name || 'name'}</p>
                   <p className="text-sm text-muted-foreground">
-                    Qty: {item.quantity}
+                    Qty: {item.quantity || '0'}
                   </p>
                 </div>
 
                 <p className="font-semibold">
-                  Rs {Number(item.productId.price) * item.quantity}
+                  Rs {Number(item.productId.price) * item.quantity || '0'}
                 </p>
               </div>
             ))}
@@ -162,19 +162,19 @@ interface IProductItem {
 
             <div className="flex justify-between">
               <span>Subtotal</span>
-              <span>Rs {subtotal}</span>
+              <span>Rs {subtotal || '0'}</span>
             </div>
 
             <div className="flex justify-between">
               <span>Shipping</span>
-              <span>Rs {shipping}</span>
+              <span>Rs {shipping || "0"}</span>
             </div>
 
             <Separator />
 
             <div className="flex justify-between font-bold text-lg">
               <span>Total</span>
-              <span>Rs {total}</span>
+              <span>Rs {total || "0"}</span>
             </div>
 
             <Button className="w-full mt-4">
