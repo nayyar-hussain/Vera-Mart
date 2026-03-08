@@ -1,5 +1,10 @@
 import mongoose from "mongoose"
+
 import "@/Model/Product"
+import { setServers } from "dns/promises"
+
+setServers(['1.1.1.1', '1.0.0.1', '8.8.8.8', '8.8.4.4'])
+
 const MONGODB_URI = process.env.MONGODB_URI!
 let cached = global.mongoose
 if(!cached){
